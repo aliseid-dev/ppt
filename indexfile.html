@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction Management System - 25 Slide Presentation</title>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .presentation-container {
+            width: 100%;
+            max-width: 1000px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 60px;
+            animation: fadeIn 0.5s ease-in;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Slide Themes */
+        .slide-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            justify-content: center !important;
+        }
+
+        .slide-title h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .slide-title p {
+            font-size: 1.5em;
+            opacity: 0.9;
+        }
+
+        .slide h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .slide h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .slide p, .slide li {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .slide ul {
+            margin-left: 40px;
+            margin-bottom: 20px;
+        }
+
+        .slide li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #667eea20 0%, #764ba220 100%);
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2.5em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .stat-box .label {
+            font-size: 1em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .workflow-step {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .workflow-step strong {
+            color: #667eea;
+        }
+
+        /* Navigation */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #f8f9ff;
+            border-top: 1px solid #ddd;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 20px;
+            }
+
+            .slide-title h1 {
+                font-size: 2em;
+            }
+
+            .slide h2 {
+                font-size: 1.8em;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                padding: 15px 20px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="presentation-container"><!-- Slide 1: Title -->
+   <div class="slide slide-title active">
+    <h1>🏗️ Construction Project Workflow Scheduling System</h1>
+    <p>Real-Time Resource Allocation &amp; Smart Project Management</p>
+   </div><!-- Slide 2: The Problem -->
+   <div class="slide">
+    <h2>The Core Problem</h2>
+    <h3>Why Traditional Methods Fail</h3>
+    <ul>
+     <li><strong>Spreadsheet Chaos:</strong> Manual tracking leads to errors, delays, and miscommunication</li>
+     <li><strong>No Real-Time Visibility:</strong> Changes on job sites take hours or days to reach the office</li>
+     <li><strong>Resource Conflicts:</strong> One misallocation can disrupt entire workflows and cascade delays</li>
+     <li><strong>Outdated Reporting:</strong> Managers make decisions based on yesterday's data</li>
+     <li><strong>Costly Mistakes:</strong> Idle workers, equipment overcharges, and schedule slippage</li>
+    </ul>
+    <div class="highlight"><strong>Result:</strong> Increased costs, frustrated teams, and missed deadlines
+    </div>
+   </div><!-- Slide 3: Business Impact -->
+   <div class="slide">
+    <h2>Business Impact of Inefficiency</h2>
+    <div class="two-column">
+     <div class="stat-box">
+      <div class="number">
+       ↑ 30%
+      </div>
+      <div class="label">
+       Project Delays
+      </div>
+     </div>
+     <div class="stat-box">
+      <div class="number">
+       ↑ 25%
+      </div>
+      <div class="label">
+       Labor Costs
+      </div>
+     </div>
+     <div class="stat-box">
+      <div class="number">
+       ↑ 20%
+      </div>
+      <div class="label">
+       Resource Waste
+      </div>
+     </div>
+     <div class="stat-box">
+      <div class="number">
+       ↓ 40%
+      </div>
+      <div class="label">
+       Team Morale
+      </div>
+     </div>
+    </div>
+   </div><!-- Slide 4: The Solution -->
+   <div class="slide">
+    <h2>Our Solution: One Unified Platform</h2>
+    <h3>Real-Time Resource &amp; Task Management</h3>
+    <ul>
+     <li>✅ <strong>Continuous Tracking:</strong> Know exactly where every resource is and what it's doing</li>
+     <li>✅ <strong>Automatic Scheduling:</strong> System generates conflict-free schedules in real-time</li>
+     <li>✅ <strong>Instant Alerts:</strong> Shortages, conflicts, and bottlenecks detected immediately</li>
+     <li>✅ <strong>Mobile-First Design:</strong> Field supervisors manage projects from job sites or offices</li>
+     <li>✅ <strong>Task Dependencies:</strong> Automatic detection of what can run next based on prerequisites</li>
+    </ul>
+   </div><!-- Slide 5: Goals & Objectives -->
+   <div class="slide">
+    <h2>Project Goals</h2>
+    <h3>General Objective</h3>
+    <p>Develop a comprehensive, real-time platform that accurately tracks resource status, task status, and dependencies.</p>
+    <h3>Specific Objectives</h3>
+    <ul>
+     <li>🎯 Automatically identify runnable tasks based on available resources</li>
+     <li>🎯 Alert management for resource scarcity before it becomes a problem</li>
+     <li>🎯 Track resources against their respective tasks with precision</li>
+     <li>🎯 Mobile-first web design for seamless field supervisor experience</li>
+     <li>🎯 Reduce project delays by 40% and improve team efficiency by 50%</li>
+    </ul>
+   </div><!-- Slide 6: Scope & Boundaries -->
+   <div class="slide">
+    <h2>Project Scope</h2>
+    <h3>What's Included ✅</h3>
+    <ul>
+     <li>Real-time resource tracking and inventory</li>
+     <li>User authentication with role-based access (Site Officer, HQ, Admin)</li>
+     <li>Task dependency mapping and conflict detection</li>
+     <li>Complete task lifecycle management</li>
+    </ul>
+    <h3>What's NOT Included ❌</h3>
+    <ul>
+     <li>Automatic procurement (human decision still needed)</li>
+     <li>IoT device integration (future phase)</li>
+     <li>Financial reporting (out of scope)</li>
+    </ul>
+   </div><!-- Slide 7: Feature 1 - Task Management -->
+   <div class="slide">
+    <h2>Core Feature #1: Smart Task Management</h2>
+    <h3>What Site Officers Can Do</h3>
+    <ul>
+     <li>📋 <strong>Create Tasks:</strong> Define name, duration, resources needed, prerequisites, and conflicts</li>
+     <li>🔗 <strong>Map Dependencies:</strong> Specify which tasks must complete before others start</li>
+     <li>⚠️ <strong>Flag Conflicts:</strong> Mark tasks that cannot run simultaneously (e.g., competing for the same excavator)</li>
+     <li>📊 <strong>View Task Status:</strong> See tasks waiting, in-progress, completed, or ready for approval</li>
+     <li>✏️ <strong>Update &amp; Delete:</strong> Modify tasks or remove them if plans change</li>
+    </ul>
+    <div class="highlight"><strong>Example:</strong> Foundation task must complete before wall erection. System won't let walls start until foundation is approved.
+    </div>
+   </div><!-- Slide 8: Feature 2 - Resource Tracking -->
+   <div class="slide">
+    <h2>Core Feature #2: Real-Time Resource Tracking</h2>
+    <h3>Three Resource Categories</h3>
+    <ul>
+     <li>🔴 <strong>Rental Resources:</strong> Expensive equipment with daily charges (excavators, cranes). System highlights these to prevent idle costs.</li>
+     <li>⏰ <strong>Expiring Resources:</strong> Materials with expiry dates (concrete, sealants). System warns before they become unusable.</li>
+     <li>📦 <strong>Standard Resources:</strong> Regular materials and labor (rebar, lumber, workers)</li>
+    </ul>
+    <h3>What the System Does</h3>
+    <ul>
+     <li>Tracks total available quantity for each resource</li>
+     <li>Reserves resources when tasks start</li>
+     <li>Automatically consumes resources when tasks complete</li>
+     <li>Alerts when quantities run low</li>
+    </ul>
+   </div><!-- Slide 9: Feature 3 - Smart Alerts -->
+   <div class="slide">
+    <h2>Core Feature #3: Intelligent Alert System</h2>
+    <h3>Real-Time Notifications</h3>
+    <ul>
+     <li>🚨 <strong>Resource Shortage Alerts:</strong> System detects when current + upcoming task needs exceed available resources</li>
+     <li>⏳ <strong>Expiry Warnings:</strong> "Cement expires in 3 days—use it now or lose it"</li>
+     <li>💰 <strong>Rental Cost Alerts:</strong> "Excavator sitting idle—complete task by Friday or pay extra $500"</li>
+     <li>🔗 <strong>Dependency Notifications:</strong> "Wall task ready to start—all prerequisites complete, resources available"</li>
+     <li>📸 <strong>Approval Requests:</strong> HQ instantly notified when field supervisor uploads completion photos</li>
+    </ul>
+    <div class="highlight"><strong>Impact:</strong> Issues caught before they become expensive problems
+    </div>
+   </div><!-- Slide 10: Feature 4 - Role-Based Access -->
+   <div class="slide">
+    <h2>Core Feature #4: Three-Role System</h2>
+    <h3>Site Officer (Field)</h3>
+    <ul>
+     <li>✅ Create, edit, manage tasks on site</li>
+     <li>✅ View resource availability in real-time</li>
+     <li>✅ Request resources from HQ</li>
+     <li>✅ Upload completion photos for approval</li>
+    </ul>
+    <h3>HQ Personnel (Office)</h3>
+    <ul>
+     <li>✅ Create and assign projects to site officers</li>
+     <li>✅ Approve/reject resource requests</li>
+     <li>✅ Review completion photos and approve tasks</li>
+     <li>✅ Send resources to projects</li>
+    </ul>
+    <h3>Admin</h3>
+    <ul>
+     <li>✅ Manage user accounts and roles</li>
+    </ul>
+   </div><!-- Slide 11: System Architecture Overview -->
+   <div class="slide">
+    <h2>System Architecture</h2>
+    <h3>Three-Tier Design</h3>
+    <div class="workflow-step"><strong>📱 Frontend (React):</strong> Mobile-first web interface running in user's browser. Connects to backend via REST API.
+    </div>
+    <div class="workflow-step"><strong>🖥️ Backend (Node.js + Express):</strong> Business logic, data processing, real-time events. Manages task dependencies, resource calculations, and approvals.
+    </div>
+    <div class="workflow-step"><strong>🗄️ Database (PostgreSQL):</strong> Stores all users, tasks, resources, projects, photos. Ensures data integrity with ACID compliance.
+    </div>
+    <div class="workflow-step"><strong>⚡ Real-Time (Socket.io):</strong> Instant notifications pushed to users when events occur (no refresh needed).
+    </div>
+   </div><!-- Slide 12: Technology Stack -->
+   <div class="slide">
+    <h2>Technology Stack</h2>
+    <h3>Frontend</h3>
+    <ul>
+     <li>🎨 <strong>React 18:</strong> Component-based UI, virtual DOM for performance</li>
+     <li>📱 <strong>Mobile-First CSS:</strong> Responsive from 320px phones to 1920px desktops</li>
+    </ul>
+    <h3>Backend</h3>
+    <ul>
+     <li>🚀 <strong>Node.js:</strong> Fast, non-blocking server</li>
+     <li>🔌 <strong>Express:</strong> REST API framework</li>
+     <li>⚡ <strong>Socket.io:</strong> Real-time bidirectional communication</li>
+    </ul>
+    <h3>Data &amp; Security</h3>
+    <ul>
+     <li>🗄️ <strong>PostgreSQL:</strong> Relational database for complex construction data</li>
+     <li>🔐 <strong>Prisma ORM:</strong> Type-safe database queries</li>
+     <li>🔒 <strong>Better-Auth:</strong> JWT-based authentication with hashed passwords</li>
+    </ul>
+   </div><!-- Slide 13: Data Model -->
+   <div class="slide">
+    <h2>Data Model: Core Entities</h2>
+    <h3>Key Relationships</h3>
+    <ul>
+     <li><strong>Users:</strong> Have a Role (Site Officer, HQ, Admin)</li>
+     <li><strong>Projects:</strong> Assigned to one Site Officer, contain many Tasks</li>
+     <li><strong>Tasks:</strong> Have Prerequisites (must complete first), Conflicts (can't run together), Required Resources</li>
+     <li><strong>Resources:</strong> Have Types (rental, expiring, standard), allocated to Projects, consumed by Tasks</li>
+     <li><strong>Photos:</strong> Evidence uploaded for task completion approval</li>
+    </ul>
+    <div class="highlight"><strong>Example:</strong> Foundation task requires 500 bags of cement. When task starts, 500 bags are reserved. When task completes, 500 bags are consumed and deducted from inventory.
+    </div>
+   </div><!-- Slide 14: Workflow #1 - Task Initiation -->
+   <div class="slide">
+    <h2>Workflow #1: Starting a Task</h2>
+    <h3>The Smart Sequence</h3>
+    <div class="workflow-step"><strong>1. Site Officer clicks "Start Task"</strong><br>
+      Field supervisor initiates wall erection task
+    </div>
+    <div class="workflow-step"><strong>2. System checks prerequisites:</strong><br>
+      Foundation task must be APPROVED ✓
+    </div>
+    <div class="workflow-step"><strong>3. System checks resources:</strong><br>
+      500 bricks available? ✓ | 10 workers available? ✓
+    </div>
+    <div class="workflow-step"><strong>4. System checks conflicts:</strong><br>
+      No concrete pouring happening? ✓ (they share equipment)
+    </div>
+    <div class="workflow-step"><strong>5. All checks pass → Task starts + Resources reserved</strong><br>
+      500 bricks moved from "available" to "reserved for this task"
+    </div>
+   </div><!-- Slide 15: Workflow #2 - Resource Request -->
+   <div class="slide">
+    <h2>Workflow #2: Resource Request &amp; Approval</h2>
+    <h3>When Resources Run Low</h3>
+    <div class="workflow-step"><strong>1. Site Officer completes a task</strong><br>
+      Concrete foundation work done
+    </div>
+    <div class="workflow-step"><strong>2. System calculates next task needs</strong><br>
+      Wall task needs 500 bricks. Available: 200. Shortage: 300 bricks
+    </div>
+    <div class="workflow-step"><strong>3. System auto-notifies HQ</strong><br>
+      "Site #3 needs 300 bricks + 5 workers" (real-time alert)
+    </div>
+    <div class="workflow-step"><strong>4. HQ sends resources</strong><br>
+      "Shipping 400 bricks to Site #3"
+    </div>
+    <div class="workflow-step"><strong>5. Site Officer approves receipt</strong><br>
+      Confirms quantity &amp; quality, adds expiry date if needed
+    </div>
+    <div class="workflow-step"><strong>6. Resources added to inventory → Waiting tasks can start</strong><br>
+      Wall task now has resources, starts immediately
+    </div>
+   </div><!-- Slide 16: Workflow #3 - Task Completion -->
+   <div class="slide">
+    <h2>Workflow #3: Task Completion &amp; Approval</h2>
+    <h3>Photo Evidence System</h3>
+    <div class="workflow-step"><strong>1. Site Officer completes wall erection</strong><br>
+      Takes photos as proof (foundation, side view, measurements)
+    </div>
+    <div class="workflow-step"><strong>2. Uploads photos + marks task "Ready for Approval"</strong><br>
+      System reserves resources are deducted: 500 bricks consumed
+    </div>
+    <div class="workflow-step"><strong>3. HQ gets real-time notification</strong><br>
+      "Wall task completion uploaded for approval at Site #3"
+    </div>
+    <div class="workflow-step"><strong>4. HQ reviews photos + approves/rejects</strong><br>
+      Rejects: "Need to see corner details" (task reverts to in-progress)<br>
+      Approves: Task marked COMPLETED
+    </div>
+    <div class="workflow-step"><strong>5. System checks what's next</strong><br>
+      Roof task is waiting. Check if resources are available. If yes → alert Site Officer.
+    </div>
+   </div><!-- Slide 17: Algorithm #1 - Task Readiness -->
+   <div class="slide">
+    <h2>Smart Algorithm #1: Task Readiness Detection</h2>
+    <h3>Can This Task Start?</h3>
+    <p>The system checks THREE criteria before allowing a task to start:</p>
+    <ul>
+     <li>✅ <strong>Prerequisites Met:</strong> All dependent tasks are APPROVED</li>
+     <li>✅ <strong>Resources Available:</strong> All required materials/labor are in stock</li>
+     <li>✅ <strong>No Conflicts:</strong> No conflicting tasks are currently running</li>
+    </ul>
+    <div class="highlight"><strong>Example:</strong><br>
+      • Roof task needs 1000 shingles (only 800 available) → Can't start<br>
+      • Roof task needs completion of wall (wall still in-progress) → Can't start<br>
+      • Roof task + waterproofing both need crane (waterproofing running) → Can't start<br>
+      • All conditions met → Task starts immediately!
+    </div>
+   </div><!-- Slide 18: Algorithm #2 - Concurrent Tasks -->
+   <div class="slide">
+    <h2>Smart Algorithm #2: Concurrent Task Grouping</h2>
+    <h3>What Can Run in Parallel?</h3>
+    <p>The system analyzes all waiting tasks and groups those that can run simultaneously:</p>
+    <ul>
+     <li>🔍 Identifies tasks with NO dependency relationships</li>
+     <li>🔍 Verifies no resource conflicts between them</li>
+     <li>🔍 Groups them into "batches" that can start together</li>
+    </ul>
+    <div class="highlight"><strong>Example:</strong><br>
+      • Task A (Interior painting) + Task B (Exterior landscaping) = Can run in parallel ✓<br>
+      • Task C (Install plumbing) + Task D (Install electrical) = Can run in parallel ✓<br>
+      • But all 4 together? No—painting needs electrical to be done first ✗<br>
+      • System groups: [Paint + Landscape] then [Plumbing + Electrical] then [Paint + Landscape]
+    </div>
+   </div><!-- Slide 19: Algorithm #3 - Resource Shortage Prediction -->
+   <div class="slide">
+    <h2>Smart Algorithm #3: Resource Shortage Prediction</h2>
+    <h3>Predict Problems Before They Happen</h3>
+    <p>When a task completes, the system:</p>
+    <ul>
+     <li>1️⃣ Looks at the next waiting tasks</li>
+     <li>2️⃣ Calculates total resources needed by next 2-3 tasks</li>
+     <li>3️⃣ Compares to current available inventory</li>
+     <li>4️⃣ If shortage detected → alerts HQ immediately</li>
+    </ul>
+    <div class="highlight"><strong>Example:</strong><br>
+      Current stock: 200 bricks<br>
+      Next task needs: 500 bricks (shortage of 300)<br>
+      Task after that needs: 400 bricks<br>
+      Total shortage: 700 bricks<br>
+      System instantly notifies HQ: "Need 700 bricks ASAP to keep workflow moving"
+    </div>
+   </div><!-- Slide 20: User Experience -->
+   <div class="slide">
+    <h2>User Experience: Mobile-First Design</h2>
+    <h3>Why Mobile-First?</h3>
+    <ul>
+     <li>📱 Field supervisors need phones on job sites, not laptops</li>
+     <li>📱 Touch-friendly buttons and large text for easy reading</li>
+     <li>📱 Works on low internet connections common in remote areas</li>
+     <li>📱 Responsive: 320px phones → 1920px desktop monitors</li>
+    </ul>
+    <h3>Key Design Principles</h3>
+    <ul>
+     <li>✅ Simple, clean layout—new users productive in 1 hour</li>
+     <li>✅ Color-coded alerts: Red (danger/overdue), Green (success/approved), Yellow (warning/expiring)</li>
+     <li>✅ Common tasks take 3 clicks or less</li>
+     <li>✅ Real-time updates without page refresh</li>
+    </ul>
+   </div><!-- Slide 21: Project Timeline -->
+   <div class="slide">
+    <h2>Implementation Timeline</h2>
+    <h3>14-Week Development Schedule</h3>
+    <div class="workflow-step"><strong>Weeks 1-2: Requirements &amp; Planning</strong><br>
+      Detailed specifications, domain expert interviews
+    </div>
+    <div class="workflow-step"><strong>Weeks 3-5: System Design &amp; Architecture</strong><br>
+      Database schema, API design, UI wireframes
+    </div>
+    <div class="workflow-step"><strong>Weeks 6-11: Development</strong><br>
+      Backend API, Frontend UI, Database setup, Real-time features
+    </div>
+    <div class="workflow-step"><strong>Weeks 12-13: Testing &amp; QA</strong><br>
+      Black-box testing, bug fixes, performance optimization
+    </div>
+    <div class="workflow-step"><strong>Week 14: Deployment &amp; Launch</strong><br>
+      Server setup, final checks, go live
+    </div>
+   </div><!-- Slide 22: Success Metrics -->
+   <div class="slide">
+    <h2>How We Measure Success</h2>
+    <h3>Performance Targets</h3>
+    <div class="two-column">
+     <div class="stat-box">
+      <div class="number">
+       &lt;3s
+      </div>
+      <div class="label">
+       System Response Time
+      </div>
+     </div>
+     <div class="stat-box">
+      <div class="number">
+       &lt;3s
+      </div>
+      <div class="label">
+       Real-Time Alerts
+      </div>
+     </div>
+     <div class="stat-box">
+      <div class="number">
+       320-1920px
+      </div>
+      <div class="label">
+       Screen Support
+      </div>
+     </div>
+     <div class="stat-box">
+      <div class="number">
+       1 Hour
+      </div>
+      <div class="label">
+       User Learning Curve
+      </div>
+     </div>
+    </div>
+    <h3>Business Outcomes</h3>
+    <ul>
+     <li>🎯 Reduce project delays by 40%</li>
+     <li>🎯 Cut labor costs by 20%</li>
+     <li>🎯 Eliminate idle equipment (rental savings: 25%)</li>
+     <li>🎯 Reduce scheduling conflicts from 30+ per project to near-zero</li>
+    </ul>
+   </div><!-- Slide 23: Stakeholder Benefits -->
+   <div class="slide">
+    <h2>Who Wins with This System?</h2>
+    <h3>Project Managers</h3>
+    <ul>
+     <li>✨ Real-time visibility into project status</li>
+     <li>✨ Early warning of delays before they happen</li>
+     <li>✨ Data-driven decision making</li>
+    </ul>
+    <h3>Field Supervisors</h3>
+    <ul>
+     <li>✨ Instant updates on what's ready to start</li>
+     <li>✨ Automated conflict detection (no more guessing)</li>
+     <li>✨ Fewer manual handoffs and errors</li>
+    </ul>
+    <h3>Construction Company</h3>
+    <ul>
+     <li>✨ Higher profitability (fewer cost overruns)</li>
+     <li>✨ Better client satisfaction (on-time delivery)</li>
+     <li>✨ Competitive advantage (smarter operations)</li>
+    </ul>
+    <h3>Workers</h3>
+    <ul>
+     <li>✨ Clear task assignments (no confusion)</li>
+     <li>✨ Reduced waiting time (better workflow)</li>
+     <li>✨ Faster feedback loops</li>
+    </ul>
+   </div><!-- Slide 24: Risk Mitigation -->
+   <div class="slide">
+    <h2>Challenges &amp; Risk Mitigation</h2>
+    <h3>Challenge #1: Accurate Resource Tracking</h3>
+    <ul>
+     <li>⚠️ Risk: Users enter wrong quantities</li>
+     <li>✅ Solution: Real-time photo evidence, manual override option for discrepancies</li>
+    </ul>
+    <h3>Challenge #2: Complex Workflow Modeling</h3>
+    <ul>
+     <li>⚠️ Risk: Construction workflows vary by project type</li>
+     <li>✅ Solution: Early domain expert involvement, iterative development with real projects</li>
+    </ul>
+    <h3>Challenge #3: Low Internet Connectivity</h3>
+    <ul>
+     <li>⚠️ Risk: Remote job sites have spotty connections</li>
+     <li>✅ Solution: Optimized for low bandwidth, offline mode with sync when connected</li>
+    </ul>
+    <h3>Challenge #4: User Adoption</h3>
+    <ul>
+     <li>⚠️ Risk: Field teams resistant to new tech</li>
+     <li>✅ Solution: Simple mobile-first design, 1-hour training, clear ROI for users</li>
+    </ul>
+   </div><!-- Slide 25: Closing -->
+   <div class="slide slide-title">
+    <h1>Let's Transform Construction Management</h1>
+    <p style="font-size: 1.3em; margin-top: 30px;">From spreadsheets to smart workflows.<br>
+     From delays to on-time delivery.<br>
+     From chaos to clarity.</p>
+    <p style="font-size: 1.2em; margin-top: 50px; opacity: 0.8;">Questions?</p>
+   </div><!-- Navigation -->
+   <div class="nav-container"><button id="prevBtn" onclick="changeSlide(-1)">← Previous</button> <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">25</span></span> <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+   </div>
+  </div>  <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        showSlide(currentSlide);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ebca03bc1b47e19',t:'MTc3NjEwNTkwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
